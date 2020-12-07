@@ -7,6 +7,7 @@ import android.view.Gravity
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import org.w3c.dom.Text
 
@@ -16,6 +17,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
         buttonToast.setOnClickListener(this)
+
+        buttonSnack.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -36,6 +39,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
                 toast.show()
+            }
+            R.id.buttonSnack -> {
+                val snack = Snackbar.make(linear_root, "Snack", Snackbar.LENGTH_SHORT)
+                snack.setAction("Desfazer", View.OnClickListener {
+                    toast("desfeito!")
+                })
+
+                snack.setActionTextColor(Color.BLUE)
+                snack.setBackgroundTint(Color.GRAY)
+
+                snack.show()
             }
         }
     }
