@@ -5,15 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import org.w3c.dom.Text
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener,
+    SeekBar.OnSeekBarChangeListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,8 +21,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
         buttonSnack.setOnClickListener(this)
         button_get_spinner.setOnClickListener(this)
         button_set_spinner.setOnClickListener(this)
+        button_get_seekbar.setOnClickListener(this)
+        button_set_seekbar.setOnClickListener(this)
+
 
         spinner_static.onItemSelectedListener = this
+        seekbar.setOnSeekBarChangeListener(this)
 
 
         loadSpinner()
@@ -78,6 +81,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
                 spinner_static.setSelection(3)
 
             }
+            R.id.button_set_seekbar -> {
+                seekbar.progress = 15
+            }
+            R.id.button_get_seekbar -> {
+                toast("Seekbar: ${seekbar.progress}")
+
+            }
         }
     }
 
@@ -97,6 +107,18 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
         toast("nothing")
+    }
+
+    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+        text_seekbar_value.text = "Valor seekbar: $progress"
+    }
+
+    override fun onStartTrackingTouch(seekBar: SeekBar?) {
+        toast("Track started")
+    }
+
+    override fun onStopTrackingTouch(seekBar: SeekBar?) {
+        toast("Track stopped")
     }
 
 }
