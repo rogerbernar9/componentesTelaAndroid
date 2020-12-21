@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
         seekbar.setOnSeekBarChangeListener(this)
 
         switchOnOff.setOnCheckedChangeListener(this)
+        checkOnOff.setOnCheckedChangeListener(this)
 
 
         loadSpinner()
@@ -126,8 +127,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
     override fun onCheckedChanged(buttonView: CompoundButton, isChecked: Boolean) {
         when (buttonView.id) {
             R.id.switchOnOff -> {
-                toast("Switch: ${if (isChecked) "true" else "false"}")
+                toast("Switch : ${if (isChecked) "true" else "false"}")
 //                switchOnOff.isChecked = true
+            }
+            R.id.checkOnOff -> {
+                toast("Checkbox : ${if (isChecked) "true" else "false"}")
+//                checkOnOff.isChecked = true
             }
         }
     }
