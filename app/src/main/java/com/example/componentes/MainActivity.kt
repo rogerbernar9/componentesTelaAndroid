@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnItemSelectedListener,
-    SeekBar.OnSeekBarChangeListener {
+    SeekBar.OnSeekBarChangeListener, CompoundButton.OnCheckedChangeListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
 
         spinner_static.onItemSelectedListener = this
         seekbar.setOnSeekBarChangeListener(this)
+
+        switchOnOff.setOnCheckedChangeListener(this)
 
 
         loadSpinner()
@@ -119,6 +121,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
 
     override fun onStopTrackingTouch(seekBar: SeekBar?) {
         toast("Track stopped")
+    }
+
+    override fun onCheckedChanged(buttonView: CompoundButton, isChecked: Boolean) {
+        when (buttonView.id) {
+            R.id.switchOnOff -> {
+                toast("Switch: ${if (isChecked) "true" else "false"}")
+//                switchOnOff.isChecked = true
+            }
+        }
     }
 
 }
