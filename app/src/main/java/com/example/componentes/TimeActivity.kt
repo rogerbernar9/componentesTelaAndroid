@@ -1,18 +1,21 @@
 package com.example.componentes
 
 import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 import android.widget.DatePicker
+import android.widget.TimePicker
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_time.*
 import java.text.SimpleDateFormat
 import java.util.*
 
 
-class TimeActivity : AppCompatActivity(), View.OnClickListener, DatePickerDialog.OnDateSetListener {
+class TimeActivity : AppCompatActivity(), View.OnClickListener, DatePickerDialog.OnDateSetListener,
+TimePickerDialog.OnTimeSetListener {
 
     private val mSimpleDate = SimpleDateFormat("dd/MM/yyyy")
 
@@ -21,6 +24,7 @@ class TimeActivity : AppCompatActivity(), View.OnClickListener, DatePickerDialog
         setContentView(R.layout.activity_time)
 
         buttonDate.setOnClickListener(this)
+        buttonTime.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
@@ -32,6 +36,9 @@ class TimeActivity : AppCompatActivity(), View.OnClickListener, DatePickerDialog
                 val month = calendar.get(Calendar.MONTH)
                 val year = calendar.get(Calendar.YEAR)
                 DatePickerDialog(this, this, year, month, day).show()
+            }
+            R.id.buttonTime -> {
+                TimePickerDialog(this, this, 1, 1, false).show()
             }
         }
     }
@@ -45,6 +52,10 @@ class TimeActivity : AppCompatActivity(), View.OnClickListener, DatePickerDialog
         date.set(year, month, dayOfMonth)
 
         buttonDate.text = mSimpleDate.format(date.time)
+    }
+
+    override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
+        toast("$hourOfDay: $minute")
     }
 
 
