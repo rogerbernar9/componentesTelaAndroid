@@ -99,7 +99,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener, AdapterView.OnIt
 
     private fun toast(str: String) {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show()
-
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
