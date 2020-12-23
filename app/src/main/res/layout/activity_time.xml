@@ -51,4 +51,13 @@
 
     </LinearLayout>
 
+    <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:indeterminate="true"
+            android:layout_height="wrap_content"
+
+    />
+
 </LinearLayout>

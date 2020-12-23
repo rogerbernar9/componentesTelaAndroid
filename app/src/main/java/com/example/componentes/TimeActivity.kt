@@ -42,6 +42,7 @@ TimePicker.OnTimeChangedListener {
                 DatePickerDialog(this, this, year, month, day).show()
             }
             R.id.buttonGetTime -> {
+                progress.visibility = View.GONE
                 /**
                  * Tratamento para versão do android acima da API  e menor
                  */
