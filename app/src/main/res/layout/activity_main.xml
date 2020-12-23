@@ -129,9 +129,35 @@
             android:id="@+id/checkOnOff"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:checked="true"
             android:text="On / Off"
     />
+
+
+    <RadioGroup
+            android:layout_width="136dp"
+            android:layout_height="wrap_content">
+
+        <RadioButton
+                android:id="@+id/radioOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Radio On"
+        />
+
+        <RadioButton
+                android:id="@+id/radioOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Radio Off"
+
+        />
+
+    </RadioGroup>
+
 
 
 
