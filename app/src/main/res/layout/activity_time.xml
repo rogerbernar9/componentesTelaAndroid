@@ -15,13 +15,40 @@
 
     />
 
-    <Button
-            android:id="@+id/buttonTime"
+    <TimePicker
+            android:id="@+id/timepicker"
+            android:layout_marginTop="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Timepicker"
 
     />
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+
+    >
+        <Button
+                android:id="@+id/buttonGetTime"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Obter Time"
+
+        />
+
+        <Button
+                android:id="@+id/buttonSetTime"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="Atribuir Time"
+
+        />
+
+    </LinearLayout>
 
 </LinearLayout>
